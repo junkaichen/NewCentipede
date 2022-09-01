@@ -5,6 +5,19 @@ using UnityEngine;
 
 public class Centipede : MonoBehaviour
 {
+    private List<CentipedeSection> sections = new List<CentipedeSection>();
+    public CentipedeSection sectionPrefab;
+
+    public Sprite headSprite;
+    public Sprite bodySprite;
+
+    public int size = 12;
+    public float speed = 1f;
+    public LayerMask collisionMask;
+
+
+
+
     [SerializeField] float movementSpeed = 3.0f;
     [SerializeField] float rotationSpeed = 1.0f;
     float xDirection = 1;
@@ -16,10 +29,55 @@ public class Centipede : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myspriteRenderer = GetComponent<SpriteRenderer>();
-        myRigidbody2D = GetComponent<Rigidbody2D>();   
+        //myspriteRenderer = GetComponent<SpriteRenderer>();
+        //myRigidbody2D = GetComponent<Rigidbody2D>();
+        Respawn();
     }
 
+    private void Respawn()
+    {
+        foreach (CentipedeSection section in sections)
+        {
+            Destroy(section.gameObject);
+        }
+
+        sections.Clear();
+
+        for (int i = 0; i < size; i++)
+        {
+            Vector2 position = GridPosition(transform.position) + (Vector2.left * i);
+            CentipedeSection section = Instantiate(sectionPrefab, position, Quaternion.identity);
+            section.centipede = this;
+            section.SpriteRenderer.sprite = i == 0 ? headSprite : bodySprite;
+            sections.Add(section);
+        }
+
+        for (int i = 0; i < sections.Count; i++)
+        {
+            CentipedeSection section = sections[i];
+            section.Ahead = GetSectionAt(i - 1);
+            section.Behind = GetSectionAt(i + 1);
+        }
+    }
+
+    private CentipedeSection GetSectionAt(int index)
+    {
+        if (index >= 0 && index < sections.Count)
+        {
+            return sections[index];
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private Vector2 GridPosition(Vector2 position)
+    {
+        position.x = Mathf.Round(position.x);
+        position.y = Mathf.Round(position.y);
+        return position;
+    }
 
 
 
@@ -27,7 +85,7 @@ public class Centipede : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMovement(xDirection, yDirection);
+        //EnemyMovement(xDirection, yDirection);
    
 
     }
@@ -48,7 +106,7 @@ public class Centipede : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        xDirection = -xDirection;
+        //xDirection = -xDirection;
 
     }
 
