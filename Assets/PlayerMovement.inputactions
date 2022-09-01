@@ -1,5 +1,5 @@
 {
-    "name": "NewCentipede",
+    "name": "PlayerMovement",
     "maps": [
         {
             "name": "Player",
@@ -30,7 +30,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [

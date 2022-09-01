@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
         myRigidbody.velocity = new Vector2(inputX * movementSpeed, inputY * movementSpeed);
     }
 
+
     public void Move(InputAction.CallbackContext context)
     {
         inputX = context.ReadValue<Vector2>().x;
