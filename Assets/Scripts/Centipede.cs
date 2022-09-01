@@ -6,17 +6,18 @@ using UnityEngine;
 public class Centipede : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 3.0f;
-    [SerializeField] float playerMovementSpeed = 4.0f;
-    int xDirection = 1;
+    [SerializeField] float rotationSpeed = 1.0f;
+    float xDirection = 1;
+    float yDirection = 0;
 
-    private SpriteRenderer spriteRenderer;
-  
+    private SpriteRenderer myspriteRenderer;
+    private Rigidbody2D myRigidbody2D;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-       
+        myspriteRenderer = GetComponent<SpriteRenderer>();
+        myRigidbody2D = GetComponent<Rigidbody2D>();   
     }
 
 
@@ -26,30 +27,30 @@ public class Centipede : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMovement(xDirection);
+        EnemyMovement(xDirection, yDirection);
    
 
     }
 
 
-    private void EnemyMovement(int direction)
+    private void EnemyMovement(float xDdirection, float yDirection)
     {
-        Vector3 directionTranslate = new Vector3();
- 
-        directionTranslate.x = Time.deltaTime * movementSpeed * direction;
-        transform.Translate(directionTranslate);
-        
+        Vector2 movementDirecton = new Vector2 (xDirection, yDirection);
+        movementDirecton.Normalize();
+        myRigidbody2D.velocity = new Vector2(xDirection * movementSpeed, myRigidbody2D.velocity.y);
 
-  
+        Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movementDirecton);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+
+
+
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         xDirection = -xDirection;
-        transform.Translate(0, -1, 0);
-        
-    }
 
+    }
 
 }
 
