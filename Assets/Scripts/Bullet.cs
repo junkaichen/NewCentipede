@@ -16,10 +16,14 @@ public class Bullet : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision) 
     {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Centipede"))
+        {
+            Destroy(gameObject);
+        }
         myWeapon.ReloadAmmo();
-        Destroy(gameObject);
+
     }
     // Update is called once per frame
     void Update()

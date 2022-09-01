@@ -35,7 +35,7 @@ public class CentipedeSection : MonoBehaviour
         transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
     }
 
-    private void UpdateHeadSection()
+    public void UpdateHeadSection()
     {
         Vector2 gridPosition = GridPosition(transform.position);
 
@@ -72,5 +72,16 @@ public class CentipedeSection : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
         return position;
+    }
+
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.enabled && collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        {
+            collision.collider.enabled = false;
+            centipede.Remove(this);
+            Destroy(collision.collider.gameObject);
+        }
     }
 }

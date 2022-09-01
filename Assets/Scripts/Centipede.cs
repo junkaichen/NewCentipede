@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Centipede : MonoBehaviour
 {
+    // All the centipede body will be stored into the List
     private List<CentipedeSection> sections = new List<CentipedeSection>();
     public CentipedeSection sectionPrefab;
 
@@ -14,12 +15,10 @@ public class Centipede : MonoBehaviour
     public int size = 12;
     public float speed = 1f;
     public LayerMask collisionMask;
-
-
-
-
     [SerializeField] float movementSpeed = 3.0f;
     [SerializeField] float rotationSpeed = 1.0f;
+    [SerializeField] Mushroom mushroomPrefab;
+
     float xDirection = 1;
     float yDirection = 0;
 
@@ -48,6 +47,7 @@ public class Centipede : MonoBehaviour
             Vector2 position = GridPosition(transform.position) + (Vector2.left * i);
             CentipedeSection section = Instantiate(sectionPrefab, position, Quaternion.identity);
             section.centipede = this;
+            // if in the beginning of the list, it is head, otherwise is body
             section.SpriteRenderer.sprite = i == 0 ? headSprite : bodySprite;
             sections.Add(section);
         }
@@ -72,6 +72,7 @@ public class Centipede : MonoBehaviour
         }
     }
 
+    // Align the position in a Grid
     private Vector2 GridPosition(Vector2 position)
     {
         position.x = Mathf.Round(position.x);
@@ -108,6 +109,24 @@ public class Centipede : MonoBehaviour
     {
         //xDirection = -xDirection;
 
+    }
+
+    public void Remove(CentipedeSection section)
+    {
+        Vector3 position = GridPosition(section.transform.position);
+        Instantiate(mushroomPrefab, position, Quaternion.identity);
+        if (section.Ahead != null)
+        {
+            section.Ahead.Behind = null;
+        }
+        if (section.Behind != null)
+        {
+            section.Behind.Ahead = null;
+            section.Behind.SpriteRenderer.sprite = headSprite;
+            section.Behind.UpdateHeadSection();
+        }
+        sections.Remove(section);
+        Destroy(section.gameObject);
     }
 
 }
