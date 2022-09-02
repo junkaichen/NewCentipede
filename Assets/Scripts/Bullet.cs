@@ -18,8 +18,15 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
-            Destroy(gameObject);
+            // Avoid one Bullet destroy more than 1 section
+            StartCoroutine(DestroyItself());
         }
      
+    }
+    
+    IEnumerator DestroyItself()
+    {
+        yield return new WaitForSeconds(0.01f);
+        Destroy(gameObject);
     }
 }

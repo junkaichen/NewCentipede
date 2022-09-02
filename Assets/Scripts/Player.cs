@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 4.0f;
-
     // All the player's section will be stored into the List
     private List<PlayerSection> sections = new List<PlayerSection>();
     public PlayerSection sectionPrefab;
@@ -53,6 +51,7 @@ public class Player : MonoBehaviour
             section.Ahead = GetSectionAt(i - 1);
             section.Behind = GetSectionAt(i + 1);
         }
+        print(sections.Count);
     }
 
 
@@ -83,17 +82,34 @@ public class Player : MonoBehaviour
         isTurning = true;
     }
 
-
-    // Note:
-    // need to implement: Hit by a bullet, get rid of the last section
     public void Remove()
     {
- /*       Vector3 position = GridPosition(sections[sections.Count - 1].transform.position);*/
-        /*   Instantiate(mushroomPrefab, position, Quaternion.identity);*/
-        /*      PlayerSection currSection = sections[sections.Count - 1];
-              sections.Remove(sections[sections.Count-1]);
-              Destroy(currSection.gameObject);*/
-        print(sections.Count);
+        Vector3 position = GridPosition(sections[sections.Count - 1].transform.position);
+        Instantiate(mushroomPrefab, position, Quaternion.identity);
+        // Remove the last section of Player's body
+        PlayerSection currSection = sections[sections.Count - 1];
+        sections.Remove(sections[sections.Count - 1]);
+        Destroy(currSection.gameObject);
+    }
+
+    public void AddBody()
+    {
+        Vector2 position;
+        if (sections[0].direction.x > 0)
+        {
+            position = GridPosition(sections[sections.Count - 1].transform.position) + (Vector2.right);
+        }
+        else
+        {
+            position = GridPosition(sections[sections.Count - 1].transform.position) + (Vector2.left);
+        }
+       
+        PlayerSection section = Instantiate(sectionPrefab, position, Quaternion.identity);
+        section.myPlayer = this;
+        section.Ahead = GetSectionAt(sections.Count - 1);
+        section.Behind = null;
+        sections.Add(section);
+        sections[sections.Count - 2].Behind = section;
     }
 
     

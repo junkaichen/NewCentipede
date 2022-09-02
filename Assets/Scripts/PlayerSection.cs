@@ -12,7 +12,7 @@ public class PlayerSection : MonoBehaviour
     public bool isHead => Ahead == null;
 
     private Vector2 targetPosition;
-    private Vector2 direction = Vector2.right + Vector2.up;
+    public Vector2 direction = Vector2.right + Vector2.up;
 
     private void Awake()
     {
@@ -105,19 +105,20 @@ public class PlayerSection : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ( collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
-        {
-            print("aaa");
-            /*  collision.collider.enabled = false;*/
-            myPlayer.Remove();
-
+        // Avoid one Bullet destroy more than 1 section
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Bullet") && collision.collider.enabled)
+        {         
+            if (myPlayer)
+            {
+                collision.collider.enabled = false;
+                myPlayer.Remove();       
+            }            
         }
 
-    }
-
-    public void DestroyItself()
-    {
-        Destroy(gameObject);
+        if (collision.gameObject.layer == LayerMask.NameToLayer("BonusBody"))
+        {
+            myPlayer.AddBody();
+        }
     }
 
 

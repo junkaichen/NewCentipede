@@ -198,12 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a496ad27f5d6c524e994a93022145b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 4
   sectionPrefab: {fileID: 2141313849159900477, guid: 137c5eae644a87f47948d213e1021a3e, type: 3}
   headSprite: {fileID: 21300000, guid: e06ddee7bb7a19840b79ac9de183872a, type: 3}
   bodySprite: {fileID: 21300000, guid: 6e318a10e76588e429e3f896f35e598e, type: 3}
-  health: 12
-  speed: 15
+  health: 3
+  speed: 10
   collisionMask:
     serializedVersion: 2
     m_Bits: 320
@@ -305,6 +304,7 @@ GameObject:
   - component: {fileID: 704789557}
   - component: {fileID: 704789556}
   - component: {fileID: 704789559}
+  - component: {fileID: 704789560}
   m_Layer: 0
   m_Name: FightingField
   m_TagString: Untagged
@@ -380,6 +380,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2747387131869038622, guid: ea1877f1d9ea4014daa6eb36941dbfdc, type: 3}
+  amount: 5
+--- !u!114 &704789560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704789555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff40fba831dcaa43a1aed9d5e6a40ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3146261296725072030, guid: f29b5285a7689c24d895bdafb274b184, type: 3}
   amount: 5
 --- !u!1 &760290449
 GameObject:
