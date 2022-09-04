@@ -18,9 +18,13 @@ public class Player : MonoBehaviour
     [SerializeField] Mushroom mushroomPrefab;
 
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        
         Respawn();
     }
 

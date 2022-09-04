@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerSection : MonoBehaviour
 {
+
+    ScoreKeeper scoreKeeper;
     public Player myPlayer { get; set; }
     public SpriteRenderer SpriteRenderer { get; private set; }
     public PlayerSection Ahead { get; set; }
@@ -20,6 +22,11 @@ public class PlayerSection : MonoBehaviour
         targetPosition = transform.position;
     }
 
+    private void Start()
+    {
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
+
     private void Update()
     {
         if (myPlayer.isTurning)
@@ -31,7 +38,10 @@ public class PlayerSection : MonoBehaviour
         {
             UpdateHeadSection();
         }
-
+        if (this.transform.position.y > 16.5f)
+        {
+            Debug.Log("end");
+        }
         Vector2 currentPosition = transform.position;
         float speed = myPlayer.speed * Time.deltaTime;
         // Movetoward target position
@@ -118,6 +128,15 @@ public class PlayerSection : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("BonusBody"))
         {
             myPlayer.AddBody();
+        }
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            scoreKeeper.HitEnemyIncrease();
+        }
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
+        {
+            Debug.Log("!11");
         }
     }
 
