@@ -10,6 +10,7 @@ public class PlayerSection : MonoBehaviour
     public SpriteRenderer SpriteRenderer { get; private set; }
     public PlayerSection Ahead { get; set; }
     public PlayerSection Behind { get; set; }
+    public bool isOver = false;
 
     public bool isHead => Ahead == null;
 
@@ -29,7 +30,7 @@ public class PlayerSection : MonoBehaviour
 
     private void Update()
     {
-        if (myPlayer.isTurning)
+        if (myPlayer.turningDirection != 0)
         {
             UpdateHeadSectionInCurrRow();
         }
@@ -40,7 +41,7 @@ public class PlayerSection : MonoBehaviour
         }
         if (this.transform.position.y > 16.5f)
         {
-            Debug.Log("end");
+            myPlayer.isEnd = true;
         }
         Vector2 currentPosition = transform.position;
         float speed = myPlayer.speed * Time.deltaTime;
@@ -58,13 +59,32 @@ public class PlayerSection : MonoBehaviour
     public void UpdateHeadSectionInCurrRow()
     {
         Vector2 gridPosition = GridPosition(transform.position);
-        direction.x = -direction.x;
-        targetPosition.x = gridPosition.x;
-        if (Behind != null)
+        if (myPlayer.turningDirection < 0)
         {
-            Behind.UpdateBodySection();
+            if (direction.x > 0)
+            {
+                direction.x = -direction.x;
+                targetPosition.x = gridPosition.x;
+                if (Behind != null)
+                {
+                    Behind.UpdateBodySection();
+                }
+            }
         }
-        myPlayer.isTurning = false;
+        else
+        {
+            if (direction.x < 0)
+            {
+                direction.x = -direction.x;
+                targetPosition.x = gridPosition.x;
+                if (Behind != null)
+                {
+                    Behind.UpdateBodySection();
+                }
+            }
+        }
+    
+        myPlayer.turningDirection = 0;
     }
 
 
@@ -133,10 +153,6 @@ public class PlayerSection : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             scoreKeeper.HitEnemyIncrease();
-        }
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Default"))
-        {
-            Debug.Log("!11");
         }
     }
 

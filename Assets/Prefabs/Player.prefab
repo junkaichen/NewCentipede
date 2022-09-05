@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5547473909509849001
+--- !u!1 &1705302722809318279
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5547473909509849007}
-  - component: {fileID: 5547473909509848992}
-  - component: {fileID: 5547473909509848993}
+  - component: {fileID: 1705302722809318282}
+  - component: {fileID: 1705302722809318281}
+  - component: {fileID: 1705302722809318280}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -18,28 +18,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5547473909509849007
+--- !u!4 &1705302722809318282
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5547473909509849001}
+  m_GameObject: {fileID: 1705302722809318279}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.04, y: -15.01, z: 0}
+  m_LocalPosition: {x: -28.82, y: -16, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5547473909509848992
+--- !u!114 &1705302722809318281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5547473909509849001}
+  m_GameObject: {fileID: 1705302722809318279}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
@@ -63,13 +63,13 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &5547473909509848993
+--- !u!114 &1705302722809318280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5547473909509849001}
+  m_GameObject: {fileID: 1705302722809318279}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a496ad27f5d6c524e994a93022145b21, type: 3}
@@ -78,11 +78,10 @@ MonoBehaviour:
   sectionPrefab: {fileID: 2141313849159900477, guid: 137c5eae644a87f47948d213e1021a3e, type: 3}
   headSprite: {fileID: 21300000, guid: e06ddee7bb7a19840b79ac9de183872a, type: 3}
   bodySprite: {fileID: 21300000, guid: 6e318a10e76588e429e3f896f35e598e, type: 3}
-  health: 3
+  health: 10
   speed: 10
   collisionMask:
     serializedVersion: 2
     m_Bits: 320
   isTurning: 0
   mushroomPrefab: {fileID: 6521537420517027615, guid: fbba20795fb66684490ac214dd8f6eec, type: 3}
-  gameManager: {fileID: 0}

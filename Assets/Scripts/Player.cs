@@ -14,8 +14,9 @@ public class Player : MonoBehaviour
     public int health = 12;
     public float speed = 1f;
     public LayerMask collisionMask;
-    public bool isTurning = false;
+    public int turningDirection = 0;
     [SerializeField] Mushroom mushroomPrefab;
+    public bool isEnd = false;
 
 
 
@@ -55,7 +56,6 @@ public class Player : MonoBehaviour
             section.Ahead = GetSectionAt(i - 1);
             section.Behind = GetSectionAt(i + 1);
         }
-        print(sections.Count);
     }
 
 
@@ -81,9 +81,14 @@ public class Player : MonoBehaviour
 
 
 
-    public void OnMove()
+    public void OnMoveLeft()
     {
-        isTurning = true;
+        turningDirection = -1;
+    }
+
+    public void OnMoveRight()
+    {
+        turningDirection = 1;
     }
 
     public void Remove()
@@ -94,6 +99,10 @@ public class Player : MonoBehaviour
         PlayerSection currSection = sections[sections.Count - 1];
         sections.Remove(sections[sections.Count - 1]);
         Destroy(currSection.gameObject);
+        if (sections.Count == 0)
+        {
+            isEnd = true;
+        }
     }
 
     public void AddBody()
@@ -114,6 +123,11 @@ public class Player : MonoBehaviour
         section.Behind = null;
         sections.Add(section);
         sections[sections.Count - 2].Behind = section;
+    }
+
+    public int getBodyLength()
+    {
+        return sections.Count;
     }
 
     

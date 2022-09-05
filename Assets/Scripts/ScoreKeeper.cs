@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
 {
-    private int inGameScore = 0;
+  
+    private int enemyDefeated = 0;
+
 
     public void HitEnemyIncrease()
     {
-        inGameScore = inGameScore + 100;
+        enemyDefeated++;
+    }
+    private void Update()
+    {
+        Debug.Log(enemyDefeated);
     }
 
+    public int GetEnemyDefeated()
+    {
+        return enemyDefeated;
+    }
     public int GetinGameScore()
     {
-        return inGameScore;
+        return enemyDefeated * 100;
     }
+
+ 
 }
