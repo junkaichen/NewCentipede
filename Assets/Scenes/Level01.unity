@@ -2490,8 +2490,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1705302722809318280, guid: 825aab49e774e304a80de5d3298f969b, type: 3}
       propertyPath: health
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1705302722809318280, guid: 825aab49e774e304a80de5d3298f969b, type: 3}
+      propertyPath: bodySprite
+      value: 
+      objectReference: {fileID: 1842396261, guid: b58ba86b68e435d41a8ab24c4596baf3, type: 3}
+    - target: {fileID: 1705302722809318280, guid: 825aab49e774e304a80de5d3298f969b, type: 3}
+      propertyPath: headSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6db7b697a0801814bab25e2a9333afb9, type: 3}
     - target: {fileID: 1705302722809318282, guid: 825aab49e774e304a80de5d3298f969b, type: 3}
       propertyPath: m_RootOrder
       value: 1
