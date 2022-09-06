@@ -83,5 +83,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 320
-  isTurning: 0
+  turningDirection: 0
   mushroomPrefab: {fileID: 6521537420517027615, guid: fbba20795fb66684490ac214dd8f6eec, type: 3}
+  isEnd: 0
+  damageEffect: {fileID: 8583258086392545137, guid: 8080910e72e79dc45856941d2e2b25da, type: 3}

@@ -124,4 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fb2b46a00e11441b74cb3657f19ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isOver: 0
   direction: {x: 1, y: 1}
+  bodyDamageEffect: {fileID: 8583258086392545137, guid: 8080910e72e79dc45856941d2e2b25da, type: 3}

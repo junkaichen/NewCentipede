@@ -17,6 +17,8 @@ public class PlayerSection : MonoBehaviour
     private Vector2 targetPosition;
     public Vector2 direction = Vector2.right + Vector2.up;
 
+    public GameObject bodyDamageEffect;
+
     private void Awake()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -141,7 +143,8 @@ public class PlayerSection : MonoBehaviour
             if (myPlayer)
             {
                 collision.collider.enabled = false;
-                myPlayer.Remove();       
+                myPlayer.Remove();
+                Instantiate(bodyDamageEffect, transform.position, Quaternion.identity);
             }            
         }
 
