@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     void checkExistCondition()
     {
         // If there is mushroom on the left side and there is a mushroom on the right side, then destroy itself
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 100f, LayerMask.NameToLayer("Mushroom"));
+/*        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 100f, LayerMask.NameToLayer("Mushroom"));
         if (hit)
         {
             RaycastHit2D hit2 = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 100f, LayerMask.NameToLayer("Mushroom"));
@@ -41,12 +41,12 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-        }
+        }*/
     }
 
     IEnumerator Fire()
     {
-        float fireInterval = Random.Range(1.0f, 3.0f);
+        float fireInterval = Random.Range(2.0f, 4.0f);
         yield return new WaitForSeconds(fireInterval);
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         StartCoroutine(Fire());

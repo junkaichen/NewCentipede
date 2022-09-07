@@ -42,12 +42,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1300
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,9 +76,456 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_0
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1984
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be8f58decdef75488f4f3802bcbf31f
+      internalID: -262402547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_1
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 2002
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d4f999126a1494099cbd9f3c73ba84
+      internalID: 1054900317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_2
+      rect:
+        serializedVersion: 2
+        x: 4508
+        y: 677
+        width: 500
+        height: 3
+      alignment: 9
+      pivot: {x: 24.721498, y: -16.089743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e46ac146bfef7d44a747fc4472edfe1
+      internalID: 2060971249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_3
+      rect:
+        serializedVersion: 2
+        x: 3659
+        y: 2002
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 179a78c0f35aa3149aeff2a7eddc34b4
+      internalID: 988579401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_4
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 777
+        width: 103
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309b640c5be19da4bae2c31fc62a9aa4
+      internalID: -155095391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_5
+      rect:
+        serializedVersion: 2
+        x: 5211
+        y: 1990
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d792bd562d15ac4bb8c25243cd092af
+      internalID: 1225604228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_6
+      rect:
+        serializedVersion: 2
+        x: 6763
+        y: 1984
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c3ec632f946dd4495d1a59430c87c6
+      internalID: -1157380547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_7
+      rect:
+        serializedVersion: 2
+        x: 8315
+        y: 1990
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29b02abba55e0c142ad8daec4e49e573
+      internalID: 176699470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_8
+      rect:
+        serializedVersion: 2
+        x: 9867
+        y: 2008
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b102c2759c7a4d4188295ede812782d
+      internalID: 1834868411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_9
+      rect:
+        serializedVersion: 2
+        x: 11419
+        y: 1984
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91463953dd6faa44788668be4ed0c8fd
+      internalID: -1235717929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_10
+      rect:
+        serializedVersion: 2
+        x: 6903
+        y: 1019
+        width: 73
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9815c6f69ae92d842ac93009bdaf60cb
+      internalID: 1404373741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_11
+      rect:
+        serializedVersion: 2
+        x: 11999
+        y: 710
+        width: 73
+        height: 647
+      alignment: 9
+      pivot: {x: 1.2269772, y: 0.28126925}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c8d5efb886766d4fb8cc92dc1209162
+      internalID: -1077982065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_12
+      rect:
+        serializedVersion: 2
+        x: 3925
+        y: 479
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80558679b2986714bac0bd3256677d3b
+      internalID: 1586759353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_13
+      rect:
+        serializedVersion: 2
+        x: 5489
+        y: 969
+        width: 73
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa113e1069e5bd43a60f3ff904fc185
+      internalID: -95802934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_14
+      rect:
+        serializedVersion: 2
+        x: 6589
+        y: 903
+        width: 103
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eabd0be936d4dd04b9e05e8e8d760776
+      internalID: -974178310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_15
+      rect:
+        serializedVersion: 2
+        x: 8470
+        y: 1077
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01ef2983b892d074e8e676bd13d30107
+      internalID: -281197588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_16
+      rect:
+        serializedVersion: 2
+        x: 12228
+        y: 1735
+        width: 91
+        height: 66
+      alignment: 9
+      pivot: {x: -1.5087354, y: -6.826102}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fd8a5ca7b91fc248b0741b167ad1d9d
+      internalID: 170536462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_17
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 512
+        width: 500
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03a09fd0d9d8b714983e568109e5e2d3
+      internalID: 1935379856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soldier2 Bullet_12fps_18
+      rect:
+        serializedVersion: 2
+        x: 4163
+        y: 398
+        width: 61
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b1d99e31c571324f99ed454cc2e5610
+      internalID: -1053013654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -89,7 +536,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Soldier2 Bullet_12fps_13: -95802934
+      Soldier2 Bullet_12fps_18: -1053013654
+      Soldier2 Bullet_12fps_15: -281197588
+      Soldier2 Bullet_12fps_1: 1054900317
+      Soldier2 Bullet_12fps_5: 1225604228
+      Soldier2 Bullet_12fps_8: 1834868411
+      Soldier2 Bullet_12fps_16: 170536462
+      Soldier2 Bullet_12fps_6: -1157380547
+      Soldier2 Bullet_12fps_12: 1586759353
+      Soldier2 Bullet_12fps_4: -155095391
+      Soldier2 Bullet_12fps_3: 988579401
+      Soldier2 Bullet_12fps_10: 1404373741
+      Soldier2 Bullet_12fps_17: 1935379856
+      Soldier2 Bullet_12fps_2: 2060971249
+      Soldier2 Bullet_12fps_11: -1077982065
+      Soldier2 Bullet_12fps_7: 176699470
+      Soldier2 Bullet_12fps_0: -262402547
+      Soldier2 Bullet_12fps_14: -974178310
+      Soldier2 Bullet_12fps_9: -1235717929
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

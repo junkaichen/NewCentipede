@@ -14,7 +14,6 @@ public class ScoreKeeper : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(enemyDefeated);
     }
 
     public int GetEnemyDefeated()

@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
     {
         myRigidBody2D = GetComponent<Rigidbody2D>();
         myRigidBody2D.velocity = -transform.up * speed;
+        gameObject.transform.Rotate(0, 0f, 90f, Space.Self);
     }
 
 

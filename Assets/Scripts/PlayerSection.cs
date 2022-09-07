@@ -12,6 +12,8 @@ public class PlayerSection : MonoBehaviour
     public PlayerSection Behind { get; set; }
     public bool isOver = false;
 
+    Animator myAnimator;
+
     public bool isHead => Ahead == null;
 
     private Vector2 targetPosition;
@@ -23,6 +25,7 @@ public class PlayerSection : MonoBehaviour
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
+        myAnimator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -55,6 +58,10 @@ public class PlayerSection : MonoBehaviour
         // Set Rotation base on movement direction
         float angle = Mathf.Atan2(movementDirection.y, movementDirection.x);
         transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
+        if (!isHead)
+        {
+            myAnimator.SetBool("isBody", true);
+        }
     }
 
 
@@ -98,14 +105,25 @@ public class PlayerSection : MonoBehaviour
         targetPosition.x += direction.x;
 
         // Checks if there is a collider at the targetposition 
+        Collider2D hitobjs = Physics2D.OverlapBox(targetPosition, Vector2.zero, 0f, myPlayer.collisionMask);
         if (Physics2D.OverlapBox(targetPosition, Vector2.zero, 0f, myPlayer.collisionMask))
         {
-            // reverse direction if there is a collider
-            direction.x = -direction.x;
+            if (hitobjs.gameObject.layer == LayerMask.NameToLayer("Barrier"))
+            {
+                // reverse direction if there is a collider
+                direction.x = -direction.x;
 
-            targetPosition.x = gridPosition.x;
-            // go to the new row
-            targetPosition.y = gridPosition.y + direction.y;
+                targetPosition.x = gridPosition.x;
+            }
+            else
+            {
+                // reverse direction if there is a collider
+                direction.x = -direction.x;
+
+                targetPosition.x = gridPosition.x;
+                // go to the new row
+                targetPosition.y = gridPosition.y + direction.y;
+            }
         }
 
         if (Behind != null)
