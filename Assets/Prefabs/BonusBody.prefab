@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3146261296725071971}
   - component: {fileID: 3146261296725072029}
   - component: {fileID: 3146261296725072028}
-  - component: {fileID: 3146261296725072030}
+  - component: {fileID: -1606909228391861937}
   m_Layer: 10
   m_Name: BonusBody
   m_TagString: Untagged
@@ -104,7 +104,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9727273, y: 1.5}
+    oldSize: {x: 1.4466667, y: 1.1}
     newSize: {x: 2.17, y: 1.65}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -134,7 +134,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3146261296725072030
+--- !u!114 &-1606909228391861937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

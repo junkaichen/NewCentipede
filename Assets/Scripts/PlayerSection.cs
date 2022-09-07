@@ -17,6 +17,8 @@ public class PlayerSection : MonoBehaviour
     public bool isHead => Ahead == null;
 
     private Vector2 targetPosition;
+    // Vector2.right: (1,0)
+    // Vector2.up:(0,1)
     public Vector2 direction = Vector2.right + Vector2.up;
 
     public GameObject bodyDamageEffect;
@@ -26,15 +28,13 @@ public class PlayerSection : MonoBehaviour
         SpriteRenderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
         myAnimator = GetComponent<Animator>();
-    }
-
-    private void Start()
-    {
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
+
     private void Update()
     {
+        // Direction changed base on Player input
         if (myPlayer.turningDirection != 0)
         {
             UpdateHeadSectionInCurrRow();
@@ -44,6 +44,7 @@ public class PlayerSection : MonoBehaviour
         {
             UpdateHeadSection();
         }
+        // End Game
         if (this.transform.position.y > 11.5f)
         {
             myPlayer.isEnd = true;
@@ -59,6 +60,7 @@ public class PlayerSection : MonoBehaviour
         // Set Rotation base on movement direction
         float angle = Mathf.Atan2(movementDirection.y, movementDirection.x);
         transform.rotation = Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
+        // Body animation, Head animation
         if (!isHead)
         {
             myAnimator.SetBool("isBody", true);
@@ -101,8 +103,9 @@ public class PlayerSection : MonoBehaviour
     public void UpdateHeadSection()
     {
         Vector2 gridPosition = GridPosition(transform.position);
-
+        // Align position in a grid
         targetPosition = gridPosition;
+        // Move forward 1 unit in x direction (Might move back if collide with something)
         targetPosition.x += direction.x;
 
         // Checks if there is a collider at the targetposition 
@@ -113,14 +116,14 @@ public class PlayerSection : MonoBehaviour
             {
                 // reverse direction if there is a collider
                 direction.x = -direction.x;
-
+                // if overlap something, move backward 1 unit
                 targetPosition.x = gridPosition.x;
             }
             else
             {
                 // reverse direction if there is a collider
                 direction.x = -direction.x;
-
+                // if overlap something, move backward 1 unit
                 targetPosition.x = gridPosition.x;
                 // go to the new row
                 targetPosition.y = gridPosition.y + direction.y;
@@ -175,6 +178,7 @@ public class PlayerSection : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
             scoreKeeper.HitEnemyIncrease();
+            myPlayer.AddMushroomCreator();
         }
     }
 

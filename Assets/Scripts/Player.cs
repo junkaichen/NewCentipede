@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
     public Sprite headSprite;
     public Sprite bodySprite;
 
+
+    [SerializeField] int mushroomCreator = 0;
+
     public int health = 12;
     public float speed = 1f;
     public LayerMask collisionMask;
@@ -88,6 +91,17 @@ public class Player : MonoBehaviour
         turningDirection = 1;
     }
 
+    public void OnCreateMushroom()
+    {
+        if (mushroomCreator > 0)
+        {
+            Vector3 position = GridPosition(sections[sections.Count - 1].transform.position);
+            Instantiate(mushroomPrefab, position, Quaternion.identity);
+            mushroomCreator--;
+        }
+   
+    }
+
     public void Remove()
     {
         Vector3 position = GridPosition(sections[sections.Count - 1].transform.position);
@@ -127,5 +141,14 @@ public class Player : MonoBehaviour
         return sections.Count;
     }
 
-    
+    public void AddMushroomCreator()
+    {
+        mushroomCreator++;
+    }
+    public int GetMushroomCreator()
+    {
+        return mushroomCreator;
+    }
+
+
 }

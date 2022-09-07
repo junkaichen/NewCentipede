@@ -6,15 +6,6 @@
             "id": "9877e21d-a20e-400f-bc89-5f2c6eafaf85",
             "actions": [
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "a1571777-e38b-4341-8e1f-642834f26cb6",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "MoveLeft",
                     "type": "Button",
                     "id": "4c1dc59c-0041-4cbb-a63e-ecc3c52666ff",
@@ -31,42 +22,18 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "CreateMushroom",
+                    "type": "Button",
+                    "id": "0c459ecf-07e4-4bec-ba1a-58a796ad4a4e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "c1f7a91b-d0fd-4a62-997e-7fb9b69bf235",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8c8e490b-c610-4785-884f-f04217b23ca4",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3e5f5442-8668-4b27-a940-df99bad7e831",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "dfaef4a0-3d17-4edb-a87f-cb2924003d51",
@@ -86,6 +53,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "09bdedfa-b51b-4205-88ad-b1b230bea2c1",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "CreateMushroom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
