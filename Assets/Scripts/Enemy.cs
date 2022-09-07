@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
         float fireInterval = Random.Range(1.0f, 3.0f);
         yield return new WaitForSeconds(fireInterval);
         moveDirection = -moveDirection;
+        Flip();
         StartCoroutine(Walk());
     }
 
@@ -67,5 +68,13 @@ public class Enemy : MonoBehaviour
             Instantiate(effect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+    }
+
+    void Flip()
+    {
+        Vector3 currentScale = gameObject.transform.localScale;
+        currentScale.x *= -1;
+        gameObject.transform.localScale = currentScale;
+
     }
 }

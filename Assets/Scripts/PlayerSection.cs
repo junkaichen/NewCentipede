@@ -44,9 +44,10 @@ public class PlayerSection : MonoBehaviour
         {
             UpdateHeadSection();
         }
-        if (this.transform.position.y > 16.5f)
+        if (this.transform.position.y > 11.5f)
         {
             myPlayer.isEnd = true;
+            
         }
         Vector2 currentPosition = transform.position;
         float speed = myPlayer.speed * Time.deltaTime;
