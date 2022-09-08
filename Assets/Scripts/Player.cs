@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     // All the player's section will be stored into the List
-    private List<PlayerSection> sections = new List<PlayerSection>();
+    public List<PlayerSection> sections = new List<PlayerSection>();
     public PlayerSection sectionPrefab;
 
     public Sprite headSprite;

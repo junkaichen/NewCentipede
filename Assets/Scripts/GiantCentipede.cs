@@ -14,11 +14,6 @@ public class GiantCentipede : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    private void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

@@ -11,9 +11,9 @@ public class PlayerSection : MonoBehaviour
     public PlayerSection Ahead { get; set; }
     public PlayerSection Behind { get; set; }
     public bool isOver = false;
-
+    private bool canBlinking = true;
     Animator myAnimator;
-
+    SoundManager soundManager;
     public bool isHead => Ahead == null;
 
     private Vector2 targetPosition;
@@ -22,16 +22,21 @@ public class PlayerSection : MonoBehaviour
     public Vector2 direction = Vector2.right + Vector2.up;
 
     public GameObject bodyDamageEffect;
+    private Color originColor;
 
     private void Awake()
     {
+        soundManager = FindObjectOfType<SoundManager>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
         targetPosition = transform.position;
         myAnimator = GetComponent<Animator>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
-
+    private void Start()
+    {
+        originColor = SpriteRenderer.color;
+    }
     private void Update()
     {
         // Direction changed base on Player input
@@ -167,6 +172,16 @@ public class PlayerSection : MonoBehaviour
                 collision.collider.enabled = false;
                 myPlayer.Remove();
                 Instantiate(bodyDamageEffect, transform.position, Quaternion.identity);
+                soundManager.PlayerPlaySound("playerHitByBullet");
+                // Blinking effect after hit by Bullet
+                if (canBlinking)
+                {
+                    for (int i = 0; i < myPlayer.sections.Count; i++)
+                    {
+                        myPlayer.sections[i].BlinkPlayer(4, 0.2f);
+                    }
+                }
+                canBlinking = false;
             }            
         }
 
@@ -177,14 +192,29 @@ public class PlayerSection : MonoBehaviour
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
+            soundManager.PlayerPlaySound("enemyDestroyed");
             scoreKeeper.HitEnemyIncrease();
             myPlayer.AddMushroomCreator();
         }
+
     }
 
 
 
 
-
+    private void BlinkPlayer(int numBlinks, float seconds)
+    {
+        StartCoroutine(DoBlinks(numBlinks, seconds));
+    }
+    IEnumerator DoBlinks(int numBlinks, float seconds)
+    {
+        for (int i = 0; i < numBlinks * 2; i++)
+        {
+            SpriteRenderer.enabled = !SpriteRenderer.enabled;
+            yield return new WaitForSeconds(seconds);
+        }
+        canBlinking = true;
+        SpriteRenderer.enabled = true;
+    }
 
 }
