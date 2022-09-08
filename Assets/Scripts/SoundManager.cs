@@ -23,7 +23,7 @@ public class SoundManager : MonoBehaviour
                 break;
 
             case "enemyDestroyed":
-                audioSrc.PlayOneShot(enemyDestroyed, 0.3f);
+                audioSrc.PlayOneShot(enemyDestroyed, 0.2f);
                 break;
 
 
