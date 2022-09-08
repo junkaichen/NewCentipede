@@ -80,8 +80,20 @@ public class PlayerSection : MonoBehaviour
         {
             if (direction.x > 0)
             {
+                print("right");
                 direction.x = -direction.x;
                 targetPosition.x = gridPosition.x;
+                targetPosition.y = gridPosition.y + direction.y;
+                if (Behind != null)
+                {
+                    Behind.UpdateBodySection();
+                }
+            }
+            else
+            {
+                direction.x = -direction.x;
+                targetPosition.x = gridPosition.x;
+                targetPosition.y = gridPosition.y - direction.y;
                 if (Behind != null)
                 {
                     Behind.UpdateBodySection();
@@ -92,8 +104,20 @@ public class PlayerSection : MonoBehaviour
         {
             if (direction.x < 0)
             {
+                print("left");
                 direction.x = -direction.x;
                 targetPosition.x = gridPosition.x;
+                targetPosition.y = gridPosition.y + direction.y;
+                if (Behind != null)
+                {
+                    Behind.UpdateBodySection();
+                }
+            }
+            else
+            {
+                direction.x = -direction.x;
+                targetPosition.x = gridPosition.x;
+                targetPosition.y = gridPosition.y - direction.y;
                 if (Behind != null)
                 {
                     Behind.UpdateBodySection();
