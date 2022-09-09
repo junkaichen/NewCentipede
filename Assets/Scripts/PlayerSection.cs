@@ -188,6 +188,7 @@ public class PlayerSection : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("BonusBody"))
         {
             myPlayer.AddBody();
+            soundManager.PlayerPlaySound("drinkHealthRefill");
         }
 
         if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))

@@ -20,7 +20,7 @@ public class InGameUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = scoreKeeper.GetinGameScore().ToString() + " pts";
+        scoreText.text = scoreKeeper.GetinGameScore().ToString();
         mushroomItem.text = myPlayer.GetMushroomCreator().ToString();
     }
 }

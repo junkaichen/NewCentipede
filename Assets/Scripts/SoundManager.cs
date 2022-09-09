@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField]  AudioClip playerHitByBullet;
     [SerializeField]  AudioClip enemyDestroyed;
+    [SerializeField] AudioClip drinkHealthRefill;
     AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,9 @@ public class SoundManager : MonoBehaviour
             case "enemyDestroyed":
                 audioSrc.PlayOneShot(enemyDestroyed, 0.2f);
                 break;
-
+            case "drinkHealthRefill":
+                audioSrc.PlayOneShot(drinkHealthRefill, 0.2f);
+                break;
 
 
         }

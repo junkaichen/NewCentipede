@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 3401717891887324885}
   - component: {fileID: 2747387131869038622}
   - component: {fileID: 4764631745897833619}
+  - component: {fileID: 4166026873874841793}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Untagged
@@ -108,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1920948951, guid: 9fd39ab52d6265e48bf0d53bd1034cbd, type: 3}
+  m_Sprite: {fileID: -837808295, guid: 89c12a75b453e00439f2679afdc6d014, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -136,7 +137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.2464286, y: 1.4413941}
+    oldSize: {x: 1.6682668, y: 1.04875}
     newSize: {x: 2, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -160,7 +161,7 @@ MonoBehaviour:
   effect: {fileID: 8583258086392545137, guid: 6f96345c00aed89448a6cc5caa43db7d, type: 3}
   firePoint: {fileID: 4423189319565499197}
   bulletPrefab: {fileID: 2540858741255291194, guid: 7de7434d0a581ca498dd1119c741fd11, type: 3}
-  moveDirection: -1
+  moveDirection: 1
   moveSpeed: 4
 --- !u!50 &4764631745897833619
 Rigidbody2D:
@@ -183,3 +184,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
+--- !u!95 &4166026873874841793
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8722554673091384527}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 51730e707e86ac2468f9795d71652dfa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
