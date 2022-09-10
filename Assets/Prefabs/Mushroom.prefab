@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ef414f49b66b75f4198ccd5e1ba33ef4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4a5f9e0f3c30f645bc0fd725474de13, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,9 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0282c880e5b0a7a45a790a113d96be49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mushroomPart_1: {fileID: 21300000, guid: 2d38f679258433c49ada6f2a2e787312, type: 3}
-  mushroomPart_2: {fileID: 21300000, guid: ade9af45312a4c54cb880799e7951b10, type: 3}
-  mushroomPart_3: {fileID: 21300000, guid: 6697f3fea8556dc44ab092768dc27d84, type: 3}
+  mushroomPart_1: {fileID: 21300000, guid: 2d1a833df548358428647c9a02a2e666, type: 3}
+  mushroomPart_2: {fileID: 21300000, guid: c5c1fe33841bd3c47a2a8db9324c9e52, type: 3}
+  mushroomPart_3: {fileID: 21300000, guid: c4b77cc07764141479cd1fc1fc81c434, type: 3}
 --- !u!61 &6521537420517027608
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,11 +115,11 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020025969, y: -0.062077165}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.1702857, y: 1.1702857}
+    oldSize: {x: 1.0177778, y: 1.0933334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
