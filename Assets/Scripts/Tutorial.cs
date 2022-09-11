@@ -17,6 +17,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] GameObject Arrow1;
     [SerializeField] GameObject Arrow2;
     [SerializeField] GameObject Arrow3;
+    [SerializeField] GameObject Arrow4;
     GiantCentipede giantCentipede;
     Vector2 giantCentipedeVelocity;
     int isPlayerGoLeft = 0;
@@ -128,7 +129,6 @@ public class Tutorial : MonoBehaviour
         if (currentPhase == 9)
         {
             StopGiantCentipede();
-            StopPlayer();
         }
     }
 
@@ -188,14 +188,10 @@ public class Tutorial : MonoBehaviour
                 continueButton.gameObject.SetActive(true);
                 break;
             case 9:
-                tutorialText.text = "Press Space Bar use item";
+                tutorialText.text = "Press Space Bar use item to create a building in current row";
                 continueButton.gameObject.SetActive(false);
                 break;
             case 10:
-                if (isStopped)
-                {
-                    ActivatePlayer();
-                }
                 tutorialText.text = "More Enemies are coming, Destroy them all !";
                 continueButton.gameObject.SetActive(true);
                 break;
@@ -230,12 +226,6 @@ public class Tutorial : MonoBehaviour
             moveAmount = -moveAmount;
             yield return new WaitForSeconds(seconds);
         }
-        while (Arrow3)
-        {
-            Arrow3.transform.position += new Vector3(0, moveAmount, 0);
-            moveAmount = -moveAmount;
-            yield return new WaitForSeconds(seconds);
-        }
     }
 
     IEnumerator MoveArrowThree(float seconds)
@@ -244,6 +234,17 @@ public class Tutorial : MonoBehaviour
         while (Arrow3)
         {
             Arrow3.transform.position += new Vector3(moveAmount, 0, 0);
+            moveAmount = -moveAmount;
+            yield return new WaitForSeconds(seconds);
+        }
+    }
+
+    IEnumerator MoveArrowFour(float seconds)
+    {
+        float moveAmount = 0.6f;
+        while (Arrow4)
+        {
+            Arrow4.transform.position += new Vector3(0, moveAmount, 0);
             moveAmount = -moveAmount;
             yield return new WaitForSeconds(seconds);
         }
@@ -282,9 +283,14 @@ public class Tutorial : MonoBehaviour
 
     public void OnCreateMushroom()
     {
+
         if (currentPhase == 9)
         {
-            tutorialText.text = "Use an Item to create a building in current row";
+            Vector3 position = myPlayer.sections[myPlayer.sections.Count - 1].transform.position;
+            position += new Vector3(0, 1.3f,0);
+            Arrow4.transform.position = position;
+            Arrow4.SetActive(true);
+            StartCoroutine(MoveArrowFour(0.5f));
             continueButton.gameObject.SetActive(true);
         }
     }
