@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 public class Tutorial : MonoBehaviour
 {
-    [SerializeField] int messageTime = 5;
     [SerializeField] TextMeshProUGUI tutorialText;
     [SerializeField] Mushroom mushroomPrefab;
     [SerializeField] Enemy enemy1;
@@ -27,44 +26,51 @@ public class Tutorial : MonoBehaviour
     Player myPlayer;
 
     bool canBeStopped = true;
-    bool arrowCanMove = true;
 
     int currentPhase = 0;
 
     private void Awake()
     {
-        giantCentipede = FindObjectOfType<GiantCentipede>();
+
         myPlayer = FindObjectOfType<Player>();
+        giantCentipede = FindObjectOfType<GiantCentipede>();
+
 
     }
 
     private void Start()
     {
-        giantCentipedeVelocity = giantCentipede.gameObject.GetComponent<Rigidbody2D>().velocity;
     }
-
     // Update is called once per frame
     void Update()
     {
+        if (isStopped)
+        {
+            if (Input.GetKeyDown("a") || Input.GetKeyDown("d"))
+            {
+                ActivatePlayer();
+            }
+        }
+
         if (currentPhase == 0)
         {
-            if (arrowCanMove)
-            {
-                StartCoroutine(MoveArrow(0.5f));
-                arrowCanMove = false;
-            }
-
             if (giantCentipede.transform.position.x >= 0)
             {
-                Arrow1.SetActive(true);
                 StopGiantCentipede();
                 continueButton.gameObject.SetActive(true);
-
             }
 
         }
         if (currentPhase == 1)
         {
+            if (Input.GetKeyDown("a"))
+            {
+                isPlayerGoLeft++; 
+            }
+            if (Input.GetKeyDown("d"))
+            {
+                isPlayerGoRight++;
+            }
             StopGiantCentipede();
             Arrow1.SetActive(false);
             if (isPlayerGoRight == 2 && isPlayerGoLeft == 2)
@@ -83,7 +89,7 @@ public class Tutorial : MonoBehaviour
                 tutorialText.text = "Now you are in a higher row !";
                 continueButton.gameObject.SetActive(true);
             }
-          
+
         }
         if (currentPhase == 3)
         {
@@ -116,7 +122,7 @@ public class Tutorial : MonoBehaviour
                 tutorialText.gameObject.SetActive(true);
                 continueButton.gameObject.SetActive(true);
             }
-           
+
         }
         if (currentPhase == 7)
         {
@@ -129,6 +135,28 @@ public class Tutorial : MonoBehaviour
         if (currentPhase == 9)
         {
             StopGiantCentipede();
+            if (!Arrow4.activeInHierarchy)
+            {
+                if (Input.GetKeyDown("space"))
+                {
+                    Vector3 position = myPlayer.sections[myPlayer.sections.Count - 1].transform.position;
+                    position += new Vector3(-0.1f, 1.6f, 0);
+                    Arrow4.transform.position = position;
+                    Arrow4.SetActive(true);
+                    StartCoroutine(MoveArrowFour(0.5f));
+                    tutorialText.text = "Now You can go up !";
+                    continueButton.gameObject.SetActive(true);
+                }
+            }
+
+        }
+        if (currentPhase == 10)
+        {
+            StopGiantCentipede();
+        }
+        if (myPlayer.isEnd)
+        {
+            tutorialText.gameObject.SetActive(false);
         }
     }
 
@@ -189,33 +217,27 @@ public class Tutorial : MonoBehaviour
                 break;
             case 9:
                 tutorialText.text = "Press Space Bar use item to create a building in current row";
+                Arrow2.SetActive(true);
+                tutorialText.transform.position += new Vector3(0, -700, 0);
+                continueButton.transform.position += new Vector3(0, -700, 0);
                 continueButton.gameObject.SetActive(false);
                 break;
             case 10:
                 tutorialText.text = "More Enemies are coming, Destroy them all !";
+                Arrow2.SetActive(false);
+                Arrow4.SetActive(false);
                 continueButton.gameObject.SetActive(true);
                 break;
             case 11:
-                tutorialText.gameObject.SetActive(false);
+                tutorialText.text = "Hint: Body hit by Bullet will also create a building in current row";
+                giantCentipede.ContinueMoving();
                 continueButton.gameObject.SetActive(false);
                 EnenmyPhaseTwo.SetActive(true);
                 break;
-
-
         }
     }
 
 
-    IEnumerator MoveArrow(float seconds)
-    {
-            float moveAmount = 0.6f;
-        while (Arrow1)
-        {
-            Arrow1.transform.position += new Vector3(-moveAmount, moveAmount, 0);
-            moveAmount = -moveAmount;
-            yield return new WaitForSeconds(seconds);
-        }                  
-    }
 
     IEnumerator MoveArrowTwo(float seconds)
     {
@@ -241,7 +263,7 @@ public class Tutorial : MonoBehaviour
 
     IEnumerator MoveArrowFour(float seconds)
     {
-        float moveAmount = 0.6f;
+        float moveAmount = 0.7f;
         while (Arrow4)
         {
             Arrow4.transform.position += new Vector3(0, moveAmount, 0);
@@ -252,45 +274,19 @@ public class Tutorial : MonoBehaviour
 
 
 
-    private void ButtonActivate()
-    {
-        continueButton.gameObject.SetActive(true);
-    }
 
-    public void OnMoveLeft()
-    {
-        if (currentPhase == 1)
-        {
-            isPlayerGoLeft++;
-        }
-        if (isStopped)
-        {
-            ActivatePlayer();
-        }
-    }
-
-    public void OnMoveRight()
-    {
-        if (currentPhase == 1)
-        {
-            isPlayerGoRight++;
-        }
-        if (isStopped)
-        {
-            ActivatePlayer();
-        }
-    }
 
     public void OnCreateMushroom()
     {
 
-        if (currentPhase == 9)
+        if (currentPhase == 9 && !Arrow4.activeInHierarchy)
         {
             Vector3 position = myPlayer.sections[myPlayer.sections.Count - 1].transform.position;
-            position += new Vector3(0, 1.3f,0);
+            position += new Vector3(-0.1f, 1.6f, 0);
             Arrow4.transform.position = position;
             Arrow4.SetActive(true);
             StartCoroutine(MoveArrowFour(0.5f));
+            tutorialText.text = "Now You can go up !";
             continueButton.gameObject.SetActive(true);
         }
     }
@@ -311,7 +307,7 @@ public class Tutorial : MonoBehaviour
     }
     private void StopGiantCentipede()
     {
-        giantCentipede.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0,0);
+        giantCentipede.StopMoving();
     }
     private void ActivatePlayer()
     {

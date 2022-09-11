@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour
         if (player.isEnd)
         {
             gameHasEnded = true;
-            inGameUI.gameObject.SetActive(false);
+            if (inGameUI)
+            {
+                inGameUI.gameObject.SetActive(false);
+            }
+            
             endGameUI.gameObject.SetActive(true);
             endGameUI.showFinalReport();
         }

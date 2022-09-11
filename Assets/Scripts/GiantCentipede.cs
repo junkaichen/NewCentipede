@@ -8,6 +8,7 @@ public class GiantCentipede : MonoBehaviour
     Player player;
     [SerializeField] float speed = 3f;
     float direction = 1f;
+    float currentDirection = 0f;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,5 +44,15 @@ public class GiantCentipede : MonoBehaviour
             player.Remove();
 
         }
+    }
+    public void StopMoving()
+    {
+        currentDirection = direction;
+        direction = 0f;
+    }
+
+    public void ContinueMoving()
+    {
+        direction = currentDirection;
     }
 }

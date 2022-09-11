@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public Sprite headSprite;
     public Sprite bodySprite;
 
+ 
 
     [SerializeField] int mushroomCreator = 0;
 

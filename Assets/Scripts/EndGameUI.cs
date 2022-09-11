@@ -22,9 +22,9 @@ public class EndGameUI : MonoBehaviour
     public void showFinalReport()
     {
         int total = scoreKeeper.GetEnemyDefeated() * 100 + player.getBodyLength() * 50;
-        EnemyDefeatedScore.text = "Enemy Defeated: " + scoreKeeper.GetEnemyDefeated().ToString() + " x 100";
-        BonusBodyScore.text = "Body Bonus: " + player.getBodyLength().ToString() + "x 50";
-        totalScore.text = "Total Score: " + total.ToString();
+        EnemyDefeatedScore.text = scoreKeeper.GetEnemyDefeated().ToString() + " x 100";
+        BonusBodyScore.text = player.getBodyLength().ToString() + "x 50";
+        totalScore.text = total.ToString();
     }
 
     public void RestartGame()
@@ -35,5 +35,15 @@ public class EndGameUI : MonoBehaviour
     {
         Debug.Log("Quit");
         Application.Quit();
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }
