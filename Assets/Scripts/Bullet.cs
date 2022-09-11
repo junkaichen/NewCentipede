@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private Animator hitAnim;
     [SerializeField] float speed = 15.0f;
     private Rigidbody2D myRigidBody2D;
-    Weapon myWeapon;
     // Start is called before the first frame update
     void Start()
     {
-        myWeapon = FindObjectOfType<Weapon>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
-        myRigidBody2D.velocity = transform.up * speed;
+        myRigidBody2D.velocity = -transform.up * speed;
+        gameObject.transform.Rotate(0, 0f, 90f, Space.Self);
+        hitAnim = GetComponent<Animator>();
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.layer != LayerMask.NameToLayer("Centipede"))
+        if (collision.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
-            Destroy(gameObject);
+            // Avoid one Bullet destroy more than 1 section
+            hitAnim.Play("EnemyHit");
+            StartCoroutine(DestroyItself());
         }
-        myWeapon.ReloadAmmo();
-
+     
     }
-    // Update is called once per frame
-    void Update()
+    
+    IEnumerator DestroyItself()
     {
-        
+        yield return new WaitForSeconds(0.9f);
+        Destroy(gameObject);
     }
 }

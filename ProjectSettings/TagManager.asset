@@ -14,9 +14,9 @@ TagManager:
   - Barrier
   - Bullet
   - Mushroom
-  - Centipede
-  - 
-  - 
+  - Enemy
+  - BonusBody
+  - GiantCentipede
   - 
   - 
   - 
