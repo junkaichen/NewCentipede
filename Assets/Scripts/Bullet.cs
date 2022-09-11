@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    private Animator hitAnim;
     [SerializeField] float speed = 15.0f;
     private Rigidbody2D myRigidBody2D;
     // Start is called before the first frame update
@@ -12,6 +13,7 @@ public class Bullet : MonoBehaviour
         myRigidBody2D = GetComponent<Rigidbody2D>();
         myRigidBody2D.velocity = -transform.up * speed;
         gameObject.transform.Rotate(0, 0f, 90f, Space.Self);
+        hitAnim = GetComponent<Animator>();
     }
 
 
@@ -20,6 +22,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.layer != LayerMask.NameToLayer("Enemy"))
         {
             // Avoid one Bullet destroy more than 1 section
+            hitAnim.Play("EnemyHit");
             StartCoroutine(DestroyItself());
         }
      
@@ -27,7 +30,7 @@ public class Bullet : MonoBehaviour
     
     IEnumerator DestroyItself()
     {
-        yield return new WaitForSeconds(0.01f);
+        yield return new WaitForSeconds(0.9f);
         Destroy(gameObject);
     }
 }
