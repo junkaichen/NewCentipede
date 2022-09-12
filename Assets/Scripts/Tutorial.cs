@@ -6,6 +6,7 @@ using TMPro;
 public class Tutorial : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI tutorialText;
+    [SerializeField] TextMeshProUGUI tutorialTextBot;
     [SerializeField] Mushroom mushroomPrefab;
     [SerializeField] Enemy enemy1;
     [SerializeField] GameObject ThirdPhaseMushroom;
@@ -23,6 +24,7 @@ public class Tutorial : MonoBehaviour
     int isPlayerGoRight = 0;
     bool isStopped = false;
     [SerializeField] Button continueButton;
+    [SerializeField] Button continueButton2;
     Player myPlayer;
 
     bool canBeStopped = true;
@@ -121,6 +123,7 @@ public class Tutorial : MonoBehaviour
 
                 tutorialText.gameObject.SetActive(true);
                 continueButton.gameObject.SetActive(true);
+                myPlayer.disableInput();
             }
 
         }
@@ -131,9 +134,11 @@ public class Tutorial : MonoBehaviour
         if (currentPhase == 8)
         {
             StopGiantCentipede();
+            
         }
         if (currentPhase == 9)
         {
+            
             StopGiantCentipede();
             if (!Arrow4.activeInHierarchy)
             {
@@ -144,8 +149,8 @@ public class Tutorial : MonoBehaviour
                     Arrow4.transform.position = position;
                     Arrow4.SetActive(true);
                     StartCoroutine(MoveArrowFour(0.5f));
-                    tutorialText.text = "Now You can go up !";
-                    continueButton.gameObject.SetActive(true);
+                    tutorialTextBot.text = "Now You can go up !";
+                    continueButton2.gameObject.SetActive(true);
                 }
             }
 
@@ -216,22 +221,23 @@ public class Tutorial : MonoBehaviour
                 continueButton.gameObject.SetActive(true);
                 break;
             case 9:
-                tutorialText.text = "Press Space Bar use item to create a building in current row";
+                myPlayer.enableInput();
+                tutorialText.gameObject.SetActive(false);
+                tutorialTextBot.text = "Press Space Bar use item to create a building in current row";
+                tutorialTextBot.gameObject.SetActive(true);
                 Arrow2.SetActive(true);
-                tutorialText.transform.position += new Vector3(0, -700, 0);
-                continueButton.transform.position += new Vector3(0, -700, 0);
                 continueButton.gameObject.SetActive(false);
                 break;
             case 10:
-                tutorialText.text = "More Enemies are coming, Destroy them all !";
+                tutorialTextBot.text = "More Enemies are coming, Destroy them all !";
                 Arrow2.SetActive(false);
                 Arrow4.SetActive(false);
-                continueButton.gameObject.SetActive(true);
+                continueButton2.gameObject.SetActive(true);
                 break;
             case 11:
-                tutorialText.text = "Hint: Body hit by Bullet will also create a building in current row";
+                tutorialTextBot.text = "Hint: Body hit by Bullet will also create a building in current row";
                 giantCentipede.ContinueMoving();
-                continueButton.gameObject.SetActive(false);
+                continueButton2.gameObject.SetActive(false);
                 EnenmyPhaseTwo.SetActive(true);
                 break;
         }

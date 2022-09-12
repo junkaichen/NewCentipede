@@ -151,5 +151,15 @@ public class Player : MonoBehaviour
         return mushroomCreator;
     }
 
+    public void disableInput()
+    {
+        this.GetComponent<PlayerInput>().enabled = false;
+    }
+
+    public void enableInput()
+    {
+        this.GetComponent<PlayerInput>().enabled = true;
+    }
+
 
 }
