@@ -126,6 +126,7 @@ public class PlayerSection : MonoBehaviour
             }
             else
             {
+                soundManager.PlayerPlaySound("hitBuilding");
                 // reverse direction if there is a collider
                 direction.x = -direction.x;
                 // if overlap something, move backward 1 unit
