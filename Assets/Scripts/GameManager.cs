@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     Player player;
     EndGameUI endGameUI;
     InGameUI inGameUI;
+    [SerializeField] GameObject inGame;
+    [SerializeField] GameObject winningAnimation;
     private void Awake()
     {
         endGameUI = FindObjectOfType<EndGameUI>();
@@ -31,6 +33,11 @@ public class GameManager : MonoBehaviour
             
             endGameUI.gameObject.SetActive(true);
             endGameUI.showFinalReport();
+            if (player.isWinning)
+            {
+                winningAnimation.SetActive(true);
+            }
+            inGame.SetActive(false);
         }
         
     }

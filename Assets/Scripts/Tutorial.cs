@@ -75,7 +75,7 @@ public class Tutorial : MonoBehaviour
             }
             StopGiantCentipede();
             Arrow1.SetActive(false);
-            if (isPlayerGoRight == 2 && isPlayerGoLeft == 2)
+            if (isPlayerGoRight == 1 && isPlayerGoLeft == 1)
             {
                 canBeStopped = true;
                 tutorialText.text = "Well Done !";
