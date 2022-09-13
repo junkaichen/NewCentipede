@@ -36,6 +36,9 @@ public class PlayerSection : MonoBehaviour
     private void Start()
     {
         originColor = SpriteRenderer.color;
+        
+
+
     }
     private void Update()
     {
@@ -48,12 +51,15 @@ public class PlayerSection : MonoBehaviour
         if (isHead && Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
             UpdateHeadSection();
+            
         }
         // End Game
         if (this.transform.position.y > 11.5f)
         {
             myPlayer.isEnd = true;
-            
+            myPlayer.isWinning = true;
+
+
         }
         Vector2 currentPosition = transform.position;
         float speed = myPlayer.speed * Time.deltaTime;
@@ -126,15 +132,18 @@ public class PlayerSection : MonoBehaviour
             }
             else
             {
+                soundManager.PlayerPlaySound("hitBuilding");
                 // reverse direction if there is a collider
                 direction.x = -direction.x;
                 // if overlap something, move backward 1 unit
                 targetPosition.x = gridPosition.x;
                 // go to the new row
                 targetPosition.y = gridPosition.y + direction.y;
+                myPlayer.lineTrace.transform.position = targetPosition;
             }
+            
         }
-
+        
         if (Behind != null)
         {
             Behind.UpdateBodySection();

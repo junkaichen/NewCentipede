@@ -79,6 +79,7 @@ MonoBehaviour:
   sectionPrefab: {fileID: 2141313849159900477, guid: 137c5eae644a87f47948d213e1021a3e, type: 3}
   headSprite: {fileID: 21300000, guid: e06ddee7bb7a19840b79ac9de183872a, type: 3}
   bodySprite: {fileID: 21300000, guid: 6e318a10e76588e429e3f896f35e598e, type: 3}
+  lineTrace: {fileID: 8771861091616909580, guid: 4870ac6038f15b9438f48a7ca1928b51, type: 3}
   mushroomCreator: 0
   health: 10
   speed: 10

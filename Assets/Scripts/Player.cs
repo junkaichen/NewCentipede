@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
 
     public Sprite headSprite;
     public Sprite bodySprite;
-
+    public GameObject lineTrace;
+ 
 
     [SerializeField] int mushroomCreator = 0;
 
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     public int turningDirection = 0;
     [SerializeField] Mushroom mushroomPrefab;
     public bool isEnd = false;
+    public bool isWinning = false;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,8 @@ public class Player : MonoBehaviour
     {
         
         Respawn();
+/*        lineTrace.transform.position = this.sections[0].transform.position;*/
+
     }
 
     private void Respawn()
@@ -148,6 +152,16 @@ public class Player : MonoBehaviour
     public int GetMushroomCreator()
     {
         return mushroomCreator;
+    }
+
+    public void disableInput()
+    {
+        this.GetComponent<PlayerInput>().enabled = false;
+    }
+
+    public void enableInput()
+    {
+        this.GetComponent<PlayerInput>().enabled = true;
     }
 
 
