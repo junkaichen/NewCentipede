@@ -1673,6 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inGame: {fileID: 2010014998}
+  winningAnimation: {fileID: 0}
 --- !u!4 &923375043
 Transform:
   m_ObjectHideFlags: 0
