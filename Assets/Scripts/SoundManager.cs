@@ -31,7 +31,7 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(drinkHealthRefill, 0.4f);
                 break;
             case "hitBuilding":
-                audioSrc.PlayOneShot(hitBuilding, 0.1f);
+                audioSrc.PlayOneShot(hitBuilding, 0.07f);
                 break;
 
 

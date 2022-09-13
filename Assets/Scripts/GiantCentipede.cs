@@ -47,7 +47,11 @@ public class GiantCentipede : MonoBehaviour
     }
     public void StopMoving()
     {
-        currentDirection = direction;
+        if (currentDirection == 0)
+        {
+            currentDirection = direction;
+        }
+        
         direction = 0f;
     }
 

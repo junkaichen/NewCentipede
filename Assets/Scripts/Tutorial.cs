@@ -115,7 +115,7 @@ public class Tutorial : MonoBehaviour
             StopGiantCentipede();
             if (enemy1 == null)
             {
-                tutorialText.text = "Congratulation ! Enmey is Destroyed";
+                tutorialText.text = "Congratulation ! Enemy is Destroyed";
                 if (myPlayer.GetMushroomCreator() < 1)
                 {
                     myPlayer.AddMushroomCreator();
