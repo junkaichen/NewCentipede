@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        checkExistCondition();
         StartCoroutine(Fire());
         StartCoroutine(Walk());
     }
@@ -28,20 +27,6 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2 (moveDirection * moveSpeed, rb.velocity.y);
-    }
-
-    void checkExistCondition()
-    {
-        // If there is mushroom on the left side and there is a mushroom on the right side, then destroy itself
-/*        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.right), 100f, LayerMask.NameToLayer("Mushroom"));
-        if (hit)
-        {
-            RaycastHit2D hit2 = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 100f, LayerMask.NameToLayer("Mushroom"));
-            if (hit2)
-            {
-                Destroy(gameObject);
-            }
-        }*/
     }
 
     IEnumerator Fire()
